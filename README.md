@@ -29,6 +29,35 @@ boomerang's goal is to not affect the load time of the page (avoiding the
 It can be loaded in an asynchronous way that will not delay the page load even
 if `boomerang.js` is unavailable.
 
+# Braven Cheatsheet
+
+## Build
+Per the recommendations below, we build the Boomerang plugins and main script into a unified Javascript file that we host on an [AWS S3 bucket](https://s3.console.aws.amazon.com/s3/buckets/boomerangjs). We then [load that file onto platform pages](https://github.com/bebraven/platform/blob/staging/app/javascript/packs/boomerang.js) using a slightly modified version of the [loader snippet](https://developer.akamai.com/tools/boomerang/docs/tutorial-loader-snippet.html).
+
+After cloning this repo, build it using
+```
+git clone https://github.com/akamai/boomerang  
+cd boomerang
+npm update -g npm
+npm install -g grunt
+npm install
+grunt clean build
+```
+
+## Publish
+Then upload both the `build/boomerang-1.0.0-debug.js` and `build/boomerang-1.0.0.min.js.gz` to our [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/boomerangjs). I did it using the broswer UI for S3 mgmt.
+
+**IMPORTANT:** after uploading, set the meta-data for `boomerang-1.0.0.min.js.gz` by:
+
+1. Selecting the file in the browser S3 console.
+1. Choosing "Actions -> Change metadata"
+1. Setting the following:
+
+```
+Content-Type: application/javascript
+Cotnent-Encoding: gzip
+```
+
 # Features
 
 * Supports:
@@ -48,6 +77,7 @@ if `boomerang.js` is unavailable.
     * XMLHttpRequest instrumentation
     * Third-Party analytics providers IDs
     * Single Page App interactions
+
 
 # Usage
 
