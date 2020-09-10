@@ -4534,6 +4534,7 @@ BOOMR_check_doc_domain();
 	})();
 	/* END_DEBUG */
 
+	BOOMR.isBoomerangLoaded = true;
 	dispatchEvent("onBoomerangLoaded", { "BOOMR": BOOMR }, true);
 
 }(window));
