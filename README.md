@@ -45,7 +45,10 @@ grunt clean build
 ```
 
 ## Publish
-Then upload both the `build/boomerang-1.0.0-debug.js` and `build/boomerang-1.0.0.min.js.gz` to our [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/boomerangjs). I did it using the broswer UI for S3 mgmt.
+Then upload both the following to our [AWS S3 Bucket](https://s3.console.aws.amazon.com/s3/buckets/boomerangjs). I did it using the broswer UI.
+* `build/boomerang-1.0.0.js` 
+* `build/boomerang-1.0.0-debug.js` 
+* `build/boomerang-1.0.0.min.js.gz` 
 
 **IMPORTANT:** after uploading, set the meta-data for `boomerang-1.0.0.min.js.gz` by:
 
@@ -55,7 +58,7 @@ Then upload both the `build/boomerang-1.0.0-debug.js` and `build/boomerang-1.0.0
 
 ```
 Content-Type: application/javascript
-Cotnent-Encoding: gzip
+Content-Encoding: gzip
 ```
 
 # Features
