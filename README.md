@@ -36,7 +36,7 @@ Per the recommendations below, we build the Boomerang plugins and main script in
 
 After cloning this repo, build it using
 ```
-git clone https://github.com/akamai/boomerang  
+git clone https://github.com/bebraven/boomerang  
 cd boomerang
 npm update -g npm
 npm install -g grunt
