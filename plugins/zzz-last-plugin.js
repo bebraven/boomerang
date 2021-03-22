@@ -27,12 +27,11 @@ BOOMR.init({
         // Look for "new BoomerangError" in the plugins/errors.js file for the possible attributes 
         // we can parse and send.
         if (err.type) { 
-            BOOMR.addVar('error', err.type);
-            if (err.message) { BOOMR.addVar('error_detail', err.message) } 
+          BOOMR.addVar('error', err.type);
         } else {
-          if (err.message) { BOOMR.addVar('error', err.message) }
+          BOOMR.addVar('error', 'Missing Error Name. See error_detail');
         }
-
+        if (err.message) { BOOMR.addVar('error_detail', err.message) } 
         if (err.stack) { BOOMR.addVar('error_stacktrace', err.stack) }
         if (err.fileName) { BOOMR.addVar('error_filename', err.fileName) }
         if (err.functionName) { BOOMR.addVar('error_function', err.functionName) }
