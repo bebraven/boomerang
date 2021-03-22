@@ -29,7 +29,7 @@ BOOMR.init({
         if (err.type) { 
           BOOMR.addVar('error', err.type);
         } else {
-          BOOMR.addVar('error', 'Missing Error Name. See error_detail') }
+          BOOMR.addVar('error', 'Missing Error Name. See error_detail');
         }
         if (err.message) { BOOMR.addVar('error_detail', err.message) } 
         if (err.stack) { BOOMR.addVar('error_stacktrace', err.stack) }
