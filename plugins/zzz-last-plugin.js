@@ -19,6 +19,10 @@ BOOMR.init({
       // Allow the platform code to disable auto-instrumenting console.error() logs
       // using the following property b/c they clutter things up in dev with some of our utilities.
       monitorConsole: (window.BOOMR.shouldMonitorConsoleErrors === false ? false : true), 
+      // Off by default. Turning it on so that "Uncaught (in promise) <some exception>" errors
+      // get wrapped and sent. Since async functions return a promise, this is basically looking
+      // for any uncaught exceptions in our async functions.
+      monitorRejections: true,
       onError: function(err) {
         // Send across some error fields. Most of the standardization and translation of them
         // is done in honeycomb.js or in the server side controller on the platform, but since
